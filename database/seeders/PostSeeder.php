@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder
@@ -15,6 +15,8 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(10)->create();
+        Post::factory()->count(3)->forEachSequence()->create()->each(function ($post) {
+            $post->comments()->saveMany(Comment::factory()->count(5)->make());
+        });
     }
 }
