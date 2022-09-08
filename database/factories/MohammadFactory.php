@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Ybazli\Faker\Facades\Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Mohammad>
@@ -17,9 +18,9 @@ class MohammadFactory extends Factory
     public function definition()
     {
         return [
-            "title" => $this->faker->title,
-            "first_name" => $this->faker->firstName,
-            "last_name" => $this->faker->lastName,
+            "title" => Faker::jobTitle(),
+            "first_name" => Faker::firstName(),
+            "last_name" => Faker::lastName(),
         ];
     }
 }

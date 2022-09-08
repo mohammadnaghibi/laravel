@@ -24,7 +24,7 @@ class MohammadSeeder extends Seeder
             "last_name" => Str::random(35),
         ]);*/
 
-        Mohammad::factory()->count(10)->create();
+        Mohammad::factory()->count(20)->create();
 
     }
 }
