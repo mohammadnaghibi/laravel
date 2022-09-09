@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('mohammads/{mohammad}', function(\App\Models\Mohammad $mohammad): string {
+    return $mohammad->first_name;
+});
+
+Route::get('posts/{post}', function(\App\Models\Post $post): string {
+    return $post->title;
+});

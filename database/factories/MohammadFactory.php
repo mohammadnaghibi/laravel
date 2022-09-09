@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Mohammad;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Ybazli\Faker\Facades\Faker;
 
@@ -17,10 +19,13 @@ class MohammadFactory extends Factory
      */
     public function definition()
     {
+        $firstName = Faker::firstName();
+        $lastName = Faker::lastName();
         return [
             "title" => Faker::jobTitle(),
-            "first_name" => Faker::firstName(),
-            "last_name" => Faker::lastName(),
+            "first_name" => $firstName,
+            "last_name" => $lastName,
+            'slug' =>  SlugService::createSlug(Mohammad::class, 'slug', $firstName." ".$lastName)
         ];
     }
 }

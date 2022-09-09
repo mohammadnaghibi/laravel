@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign("user_id")->references("id")->on("users");
             $table->string("title",500);
             $table->text("description");
+            $table->string("slug",600);
             $table->timestamps();
         });
     }
